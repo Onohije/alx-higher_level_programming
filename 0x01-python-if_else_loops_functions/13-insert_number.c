@@ -6,7 +6,7 @@
  * @number: number to insert
  *
  * Return: If the function fails - NULL
- * Otherwise - a pointer to the new node.
+ * Otherwise - a pointer to the new(nw) node.
  */
 listint_t *insert_node(listint_t **head, int number)
 {
@@ -27,8 +27,8 @@ listint_t *insert_node(listint_t **head, int number)
 	while (node && node->next && node->next->n < number)
 		node = node->next;
 
-	new->next = node->next;
-	node->next = new;
+	nw->next = node->next;
+	node->next = nw;
 
-	return (new);
+	return (nw);
 }
