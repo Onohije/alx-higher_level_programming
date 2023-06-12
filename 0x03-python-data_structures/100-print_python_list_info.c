@@ -6,7 +6,7 @@
 */
 void print_python_list_info(PyObject *p)
 {
-    Py_ssize_t size, alloc, num;
+    int size, alloc, num;
     PyObject *obj;
 
     size = PyList_Size(p);
