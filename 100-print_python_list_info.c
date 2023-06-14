@@ -1,9 +1,9 @@
 #include <Python.h>
 
 /**
-* print_python_list_info - To Print basic info about Python lists
-* @p: A PyObject list.
-*/
+ * print_python_list_info - To Print basic info about Python lists
+ * @p: A PyObject list
+ */
 void print_python_list_info(PyObject *p)
 {
     int size, alloc, num;
