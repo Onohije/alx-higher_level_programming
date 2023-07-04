@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """Defines a Rectangle class."""
 
 
@@ -6,8 +7,10 @@ class Rectangle:
     """Represent a rectangle.
 
     Attributes:
-        number_of_instances (int): The number of Rectangle instances.
-        print_symbol (any): The symbol used for string representation.
+        number_of_instances (int): Keeps track of the number
+           of Rectangle instances.
+        print_symbol (any): The symbol used for
+        string representation of the Rectangle.
     """
 
     number_of_instances = 0
@@ -27,7 +30,7 @@ class Rectangle:
     @property
     def width(self):
         """Get/set the width of the Rectangle."""
-        return self.__width
+        return (self.__width)
 
     @width.setter
     def width(self, value):
@@ -40,7 +43,7 @@ class Rectangle:
     @property
     def height(self):
         """Get/set the height of the Rectangle."""
-        return self.__height
+        return (self.__height)
 
     @height.setter
     def height(self, value):
@@ -58,7 +61,7 @@ class Rectangle:
         """Return the perimeter of the Rectangle."""
         if self.__width == 0 or self.__height == 0:
             return (0)
-        return ((self.__width * 2) + (self.__height * 2))
+        return (self.__width * 2) + (self.__height * 2)
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
@@ -96,9 +99,9 @@ class Rectangle:
             return ("")
 
         rect = []
-        for i in range(self.__height):
-            [rect.append(str(self.print_symbol)) for j in range(self.__width)]
-            if i != self.__height - 1:
+        for rw in range(self.__height):
+            [rect.append(str(self.print_symbol)) for cl in range(self.__width)]
+            if rw != self.__height - 1:
                 rect.append("\n")
         return ("".join(rect))
 
@@ -110,5 +113,5 @@ class Rectangle:
 
     def __del__(self):
         """Print a message for every deletion of a Rectangle."""
-        type(self).number_of_instances -= 1
+        Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
