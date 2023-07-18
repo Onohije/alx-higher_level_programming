@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """Defines unittests for base.py.
 
 Unittest classes:
@@ -11,6 +12,7 @@ Unittest classes:
     TestBase_save_to_file_csv - line 404
     TestBase_load_from_file_csv - line 482
 """
+
 import os
 import unittest
 from models.base import Base

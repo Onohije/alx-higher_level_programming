@@ -63,7 +63,8 @@ class Base:
         """Return the deserialization of a JSON string.
 
     Args:
-        json_string (str): A JSON string representation of a list of dictionaries.
+        json_string (str): A JSON string representation of
+         a list of dictionaries.
 
     Returns:
         list: The deserialized Python list represented by json_string.
