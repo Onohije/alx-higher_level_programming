@@ -37,7 +37,7 @@ def matrix_mul(m_a, m_b):
                for value in [num for row in m_a for num in row]):
         raise TypeError("m_a should contain only integers or floats")
     if not all((isinstance(value, int) or isinstance(value, float))
-               for value in [num for row in m_b for num in row]):
+                for value in [num for row in m_b for num in row]):
         raise TypeError("m_b should contain only integers or floats")
 
     if not all(len(row) == len(m_a[0]) for row in m_a):
