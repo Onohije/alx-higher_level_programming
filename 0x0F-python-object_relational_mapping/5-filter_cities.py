@@ -2,7 +2,7 @@
 """Takes the name of a state as an argument and lists all
 cities of that state from the 'hbtn_0e_4_usa' database."""
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     import sys
     import MySQLdb
 
