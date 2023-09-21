@@ -1,35 +1,24 @@
 #!/usr/bin/python3
-"""
-This script interacts with a MySQL database using SQLAlchemy.
-"""
+"""Lists all State objects and corresponding City objects
+   contained in the database hbtn_0e_101_usa"""
 
-if __name__ == "__main__":
-
+if __name__ == '__main__':
     import sys
-    from sqlalchemy import create_engine
-    from sqlalchemy.ext.declarative import declarative_base
-    from sqlalchemy.orm import sessionmaker
-    from relationship_city import city
     from relationship_state import Base, State
+    from relationship_city import City
+    from sqlalchemy import asc, create_engine
+    from sqlalchemy.orm import sessionmaker
 
-    inp = sys.argv
-    if len(inp) < 4:
-        exit(1)
-
-    conn_str = "mysql+mysqldb://{}:{}elocalhost:3306/{}"
-    engine = create_engine(conn_str.format(inp[1], inp[2], inp[3]))
-    Session = sessionmaker(bind=engine)
-
+    _, user, passwd, db = sys.argv
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
+                           .format(user, passwd, db))
     Base.metadata.create_all(engine)
-
+    Session = sessionmaker(bind=engine)
     session = Session()
-    my_query = session.query(State) \
-                      .order_by(State.id) \
-                      .all()
-    for state in my_query:
-        print("{}: {}".format(state.id, state.name))
 
+    for state in session.query(State).all():
+        print('{}: {}'.format(state.id, state.name))
         for city in state.cities:
-            print("\t{}: {}".format(city.id, city.name))
+            print('    {}: {}'.format(city.id, city.name))
 
     session.close()
