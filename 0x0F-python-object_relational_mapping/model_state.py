@@ -1,13 +1,14 @@
 #!/usr/bin/python3
-"""contains the class definition of a City"""
-from model_state import Base
+"""Contains the class definition of a City"""
+
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
+from model_state import Base
 
 
 class City(Base):
-    """Defines a city of a state, extends to the Base
-    class from sqlalchemy's declartive_base"""
+    """Defines a city of a state, extends the Base
+    class from SQLAlchemy's declarative_base"""
     __tablename__ = 'cities'
     id = Column(Integer, autoincrement=True, unique=True,
                 nullable=False, primary_key=True)

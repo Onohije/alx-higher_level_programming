@@ -6,15 +6,23 @@ if __name__ == '__main__':
     import sys
     import MySQLdb
 
-    _, user, passwd, db, state = sys.argv
-    db = MySQLdb.connect(host='localhost', port=3306, user=argv[1],
-                         passwd=sys.argv[2], db=sys.argv[3])
+    db = MySQLdb.connect(
+        host='localhost',
+        port=3306,
+        user=user,
+        passwd=passwd,
+        db=db_name
+    )
     c = db.cursor()
-    c.execute("""SELECT cities.name FROM
-                 cities INNER JOIN states ON states.id=cities.state_id
-                 WHERE states.name=%s""", (sys.argv[4].))
+    c.execute("""
+        SELECT cities.name FROM
+        cities INNER JOIN states ON states.id=cities.state_id
+        WHERE states.name=%s
+    """, (state_name,))
+
     rows = c.fetchall()
-    tmp = list(row[0] for row in rows)
-    print(*tmp, sep=",")
+    city_names = [row[0] for row in rows]
+    print(*city_names, sep=",")
+
     c.close()
     db.close()
