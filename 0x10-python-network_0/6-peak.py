@@ -3,10 +3,8 @@
 
 
 def find_peak(list_of_integers):
-    """
-      Finds the peak element (the highest value) in an
-      unsorted list of integers.
-    """
+    """Finds the peak element (the highest value) in an
+       unsorted list of integers."""
 
     if list_of_integers == [] or list_of_integers is None:
         return None
