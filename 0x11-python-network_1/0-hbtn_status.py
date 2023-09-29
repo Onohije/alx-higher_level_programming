@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-""" A Python script that fetches data from
-    https://alx-intranet.hbtn.io/status and 
-    displays information about the response. """
+"""A Python script that fetches data from https://alx-intranet.hbtn.io/status
+   and displays information about the response. """
+
 import urllib.request
 
 url = 'https://alx-intranet.hbtn.io/status'
